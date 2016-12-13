@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<title>Spring JSON</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script src="app.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+</head>
+<body>
+	<div class="w3-responsive">
+    <table ng-controller="Fetch" class="w3-table-all w3-centered">
+    <thead>
+        <tr class="w3-blue">
+            <th>Bus Detail</th>
+            <th>Origin</th>
+            <th>Departure Time</th>
+            <th>Route</th>
+            <th>Destination</th>
+            <th>Arrival Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="bus in busList">
+            <td>{{bus.busNumber}}</td>
+            <td>{{bus.origin}}</td>
+            <td>{{bus.depTime}}</td>
+            <td>{{bus.route}}</td>
+            <td>{{bus.destination}}</td>
+            <td>{{bus.arrTime}}</td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+</body>
+</html>
