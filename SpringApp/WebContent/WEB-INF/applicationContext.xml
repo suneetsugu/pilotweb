@@ -34,6 +34,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>springapp.domain.Product</value>
+				<value>springapp.domain.BusSchedule</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -46,6 +47,10 @@
 	</bean>
 
 	<bean id="productDao" class="springapp.db.HibernateProductDao">
+		<property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+	</bean>
+	
+	<bean id="busDao" class="springapp.db.HibernateBusScheduleDao">
 		<property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
 	</bean>
 			
@@ -64,7 +69,7 @@
     </bean>
 
    <aop:config>
-        <aop:advisor pointcut="execution(* *..ProductManager.*(..))" advice-ref="txAdvice"/>
+        <aop:advisor pointcut="execution(* *..Dao.*(..))" advice-ref="txAdvice"/>
     </aop:config>
 
     <tx:advice id="txAdvice">
