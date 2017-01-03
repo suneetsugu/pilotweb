@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,10 +52,10 @@ public class InventoryController
 	  return listOfProducts;  
 	 }*/
 
-	@RequestMapping(value = "/buslist", method = RequestMethod.GET, headers = "Accept=application/json")
-	public List<BusSchedule> getBusDao() 
+	@RequestMapping(value = "/buslist/{origin}/{destination}", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<BusSchedule> getBusbySearch(@PathVariable("origin") String origin, @PathVariable("destination") String destination) 
 	{
-		  List<BusSchedule> listOfBus = this.busDao.getBusList();
+		  List<BusSchedule> listOfBus = this.busDao.getBusListBySearch(origin,destination);
 		  return listOfBus;
 	}
 }

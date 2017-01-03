@@ -16,7 +16,6 @@
      <mvc:annotation-driven/>  
       <context:component-scan base-package="springapp.web" />
     
-    <bean class="springapp.service.PriceIncreaseValidator" />
     
    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
       <property name="prefix" value="/WEB-INF/jsp/" />

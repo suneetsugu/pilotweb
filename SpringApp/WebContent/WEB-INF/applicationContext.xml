@@ -13,9 +13,9 @@
 
     <!-- the parent application context definition for the springapp application -->
 
-    <bean id="productManager" class="springapp.service.SimpleProductManager">
+<!--     <bean id="productManager" class="springapp.service.SimpleProductManager">
         <property name="productDao" ref="productDao"/>
-    </bean>
+    </bean> -->
 
 <!--     <bean id="productDao" class="springapp.db.HibernateProductDao">
         <property name="dataSource" ref="dataSource"/>
@@ -33,7 +33,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
-				<value>springapp.domain.Product</value>
+				<!-- <value>springapp.domain.Product</value> -->
 				<value>springapp.domain.BusSchedule</value>
 			</list>
 		</property>

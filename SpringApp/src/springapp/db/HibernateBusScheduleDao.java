@@ -31,4 +31,11 @@ public class HibernateBusScheduleDao implements BusScheduleDao
 
 	}
 
+	@Override
+	public List<BusSchedule> getBusListBySearch(String origin, String destination) {
+
+		return (List<BusSchedule>) hibernateTemplate.find("from BusSchedule bus where bus.origin=? and bus.destination=?", origin, destination);
+	}
+
+
 }

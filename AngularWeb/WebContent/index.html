@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script> 
+<script src="searchController.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+<title>Bus Evide</title>
+<div ng-hide="showme">
+Origin:&emsp;&emsp;&emsp;<input type="text" ng-model="origin"><br>
+Destination: <input type="text" ng-model="destination"><br>
+<br>
+<button class="button" ng-click="find();toggle()">Submit</button><br>
+</div>
+
+<div ng-show="showme">
+ <table class="w3-table-all w3-centered">
+    <thead>
+        <tr class="w3-blue">
+            <th>Bus Detail</th>
+            <th>Origin</th>
+            <th>Departure Time</th>
+            <th>Route</th>
+            <th>Destination</th>
+            <th>Arrival Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="bus in busList">
+            <td>{{bus.busNumber}}</td>
+            <td>{{bus.origin}}</td>
+            <td>{{bus.depTime}}</td>
+            <td>{{bus.route}}</td>
+            <td>{{bus.destination}}</td>
+            <td>{{bus.arrTime}}</td>
+        </tr>
+    </tbody>
+    </table>
+  <a href="index.html">Search Again</a>  
+</div>
+
+</body>
+</html>
