@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ["ngRoute"]);
+var myApp = angular.module('myApp', []);
 
 /*myApp.config(function($routeProvider) {
 	$routeProvider
@@ -17,16 +17,20 @@ var myApp = angular.module('myApp', ["ngRoute"]);
 });
 */
 myApp.controller("search", function($scope,$http) {
-	$scope.busList;
-	$scope.showme=false;
+	$scope.busList=null;
+	$scope.isEmpty=true;
     $scope.find = function() {
         $http.get('http://localhost:8080/SpringApp/buslist/'+$scope.origin+"/"+$scope.destination).
         success(function(data) {
             $scope.busList = data;
         });
     }
-    $scope.toggle = function() 
-    {
-    	   $scope.showme = !$scope.showme;
-    }    
+    $scope.isEmpty = function(obj,$window) {
+    	  for(var prop in obj) {
+    	      if(obj.hasOwnProperty(prop))
+    	          return false;
+    	  }
+    	  $window.alert("No buses");
+    	  return true;
+    	};  
 });
