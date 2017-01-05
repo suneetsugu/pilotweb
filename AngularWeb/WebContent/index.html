@@ -8,8 +8,12 @@
 <body>
 <title>Bus Evide</title>
 <div ng-hide="!isEmpty(busList)">
-Origin:&emsp;&emsp;&emsp;<input type="text" ng-model="origin"><br>
-Destination: <input type="text" ng-model="destination"><br>
+Origin:&emsp;&emsp;&emsp;<input type="text" ng-model="origin" list="stopList"><br>
+Destination: <input type="text" ng-model="destination" list="stopList"><br>
+<datalist id="stopList">
+<option value="Fort Kochi" />
+<option value="Airport" />
+</datalist>
 <br>
 <button class="button" ng-click="find()">Submit</button><br>
 </div>
